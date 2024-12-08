@@ -7,11 +7,14 @@ public class Solution
 {
     public int LengthOfLastWord(string s)
     {
+
         string sTrim = s.Trim();
+        if (sTrim == "") return 0;
+
         char characterToFind = ' ';
         int lastSpace = sTrim.LastIndexOf(characterToFind);
-        string lastWord = sTrim.Substring(characterToFind, sTrim.Length);
-        int lastWordLength =  lastWord.Length;
+        string lastWord = sTrim.Substring(lastSpace + 1);
+        int lastWordLength = lastWord.Length;
 
 
         return lastWordLength;
@@ -28,6 +31,11 @@ public class Solution
 
         string s3 = "luffy is still joyboy";
         Console.WriteLine(s.LengthOfLastWord(s3));
+
+        string s4 = "       ";
+        Console.WriteLine(s.LengthOfLastWord(s4));
+
+
     }
 
 
